@@ -44,7 +44,7 @@ This header template is shared across all the pages.
                 </li>
               {{/if}}
               {{#if @site.navigation}}
-                {{navigation}}
+                {{> "navigation" langCode=langCode isSecondary=false}}
               {{/if}}
               {{!-- {{#if @site.secondary_navigation}}
                 <li class="more">
@@ -57,18 +57,18 @@ This header template is shared across all the pages.
                 </li>
               {{/if}} --}}
               <li class="submenu-option js-submenu-option">
-                <div class="js-toggle-submenu">Recent</div>
+                <div class="js-toggle-submenu">{{block "recentLabel"}}</div>
                 {{!-- <button class="m-icon-button in-menu-main more js-toggle-submenu" aria-label="{{t "Open submenu"}}">
                   <span class="icon-more" aria-hidden="true"></span>
                 </button> --}}
                 <div class="m-submenu js-submenu">
                   <div class="l-wrapper in-submenu">
                     <section class="m-recent-articles">
-                      <h3 class="m-submenu-title in-recent-articles">{{t "Recent articles"}}</h3>
-                      {{#get "posts" limit="4" order="published_at desc" as |recent|}}
+                      <h3 class="m-submenu-title in-recent-articles">{{block "recentLabel"}} {{block "articlesLabel"}}</h3>
+                      {{#get "posts" limit="4" filter="tag:hash-{{langCode}}" order="published_at desc" as |recent|}}
                         {{#if recent}}
                           <div class="glide js-recent-slider">
-                            <div class="glide__track" data-glide-el="track">
+                            <div noRecentArticlesFoundclass="glide__track" data-glide-el="track">
                               <div class="glide__slides">
                                 {{#foreach recent}}
                                 <div class="glide__slide">
@@ -91,12 +91,12 @@ This header template is shared across all the pages.
                             </div>
                           </div>
                         {{else}}
-                          <div class="m-not-found in-recent-articles">{{t "No recent articles found :("}}</div>
+                          <div class="m-not-found in-recent-articles">{{block "noRecentArticlesFound"}} {{t ":("}}</div>
                         {{/if}}
                       {{/get}}
                     </section>
                     <section class="m-tags">
-                      <h3 class="m-submenu-title">{{t "Tags"}}</h3>
+                      <h3 class="m-submenu-title">{{block "postTags"}}</h3>
                       {{#get "tags" limit="10"}}
                         <ul>
                           {{#foreach tags}}
@@ -136,7 +136,7 @@ This header template is shared across all the pages.
 
   {{#if @site.secondary_navigation}}
     <div id="secondary-navigation-template" style="display: none;">
-      {{navigation type="secondary"}}
+      {{> "navigation" langCode=langCode isSecondary=true}}
     </div>
   {{/if}}
 </header>

@@ -4,6 +4,7 @@
   {{#is "post"}}
     <div class="m-recommended-slider__item glide__slide">
   {{/is}}
+
   <article class="m-article-card {{#unless feature_image}}no-picture{{/unless}} {{post_class}}">
     <div class="m-article-card__picture">
       <a href="{{url}}" class="m-article-card__picture-link" aria-hidden="true" tabindex="-1"></a>
@@ -38,7 +39,8 @@
         <div class="m-article-card__timestamp">
           <span>{{date published_at}}</span>
           <span> </span>
-          <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+          {{> "reading-time"}}
+
         </div>
       </a>
     </div>

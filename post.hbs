@@ -2,6 +2,11 @@
 This template is used for the post page.
 --}}
 
+{{!-- Load strings translations --}}
+{{#contentFor "postTags"}}{{postTags}}{{/contentFor}}
+{{#contentFor "oneMinRead"}}{{oneMinRead}}{{/contentFor}}
+
+
 {{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
   <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
@@ -13,13 +18,35 @@ This template is used for the post page.
   <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
 {{/contentFor}}
 
+{{!-- This block loads specific language partials --}}
+{{#post}}
+  {{#has tag="#fr" visibility="internal"}}
+    {{> "fr" }}
+    {{#contentFor "relatedPosts"}}
+      {{> "related-posts" langCode="fr" }}
+    {{/contentFor}}
+  {{else}}
+    {{> "en" }}
+    {{#contentFor "relatedPosts"}}
+      {{> "related-posts" langCode="en" }}
+    {{/contentFor}}
+  {{/has}}
+{{/post}}
+
 {{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
 {{!< default}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
+{{{block "header"}}}
+
 {{#post}}
-  {{> header background=feature_image}}
+  {{#has tag="#fr" visibility="internal"}}
+    {{> header background=feature_image langCode='fr'}}
+  {{else}}
+    {{> header background=feature_image langCode='en'}}
+  {{/has}}
+
 {{/post}}
 
 <main class="main-wrap">
@@ -31,6 +58,8 @@ into the {body} of the default.hbs template --}}
   
   <article>
     <div class="l-content in-post">
+      {{> "post-lang-switcher"}}
+
       {{!-- Everything inside the #post tags pulls data from the post --}}
       {{#post}}
         <div class="l-wrapper in-post {{#unless feature_image}}no-image{{/unless}} js-aos-wrapper" data-aos="fade-up"
@@ -70,7 +99,7 @@ into the {body} of the default.hbs template --}}
               {{!-- List of tags  --}}
               {{#if tags}}
                 <section class="m-tags in-post">
-                  <h3 class="m-submenu-title">{{t "Tags"}}</h3>
+                  <h3 class="m-submenu-title">{{block "postTags"}}</h3>
                   <ul>
                     {{#foreach tags}}
                       <li>
@@ -203,31 +232,7 @@ into the {body} of the default.hbs template --}}
         --}}
       {{/post}}
       {{!-- Related posts --}}
-      {{#get "posts" limit="3" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags,authors" as |related|}}
-        <section class="m-recommended">
-          <div class="l-wrapper in-recommended">
-            <h3 class="m-section-title in-recommended">{{t "Recommended for you"}}</h3>
-            <div class="m-recommended-articles">
-              <div class="m-recommended-slider glide js-recommended-slider">
-                <div class="glide__track" data-glide-el="track">
-                  <div class="glide__slides">
-                    {{!-- The tag below iterates over all the related posts --}}
-                    {{> "loop"}}
-                  </div>
-                </div>
-                <div data-glide-el="controls" class="glide__arrows js-controls">
-                  <button data-glide-dir="<" class="m-icon-button filled in-recommended-articles glide-prev" aria-label="{{t "Previous"}}">
-                    <span class="icon-arrow-left" aria-hidden="true"></span>
-                  </button>
-                  <button data-glide-dir=">" class="m-icon-button filled in-recommended-articles glide-next" aria-label="{{t "Next"}}">
-                    <span class="icon-arrow-right" aria-hidden="true"></span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      {{/get}}
+      {{{block "relatedPosts"}}}
     </div>
   </article>
 </main>

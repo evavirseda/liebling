@@ -13,9 +13,14 @@ routes:
     data: page.account
 
 collections:
-  /:
-    permalink: /{slug}/
-    template: index
+  /en/:
+    permalink: /en/{slug}/
+    template: index-en
+    filter: 'tag:hash-en'
+  /fr/:
+    permalink: /fr/{slug}/
+    template: index-fr
+    filter: 'tag:hash-fr'
 
 taxonomies:
   tag: /tag/{slug}/
