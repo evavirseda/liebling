@@ -1,6 +1,17 @@
-
 {{#has tag="#fr" visibility="internal"}}
   <span>{{reading_time minute="1 min de lecture" minutes="% min de lecture"}}</span>
 {{else}}
-  <span>{{reading_time minute="1 min read" minutes="% min read"}}</span>
+  {{#has tag="#ko" visibility="internal"}}
+    <span>{{reading_time minute="ko 1 min de lecture" minutes="% ko min de lecture"}}</span>
+  {{else}}
+    {{#has tag="#chi" visibility="internal"}}
+      <span>{{reading_time minute="chi 1 min de lecture" minutes="% chi min de lecture"}}</span>
+    {{else}}
+      {{#has tag="#jpn" visibility="internal"}}
+        <span>{{reading_time minute="jpn 1 min de lecture" minutes="% jpn min de lecture"}}</span>
+      {{else}}
+        <span>{{reading_time minute="1 min read" minutes="% min read"}}</span>
+      {{/has}}
+    {{/has}}
+  {{/has}}
 {{/has}}

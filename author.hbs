@@ -41,21 +41,21 @@ into the {body} of the default.hbs template --}}
             <ul class="m-hero-social">
               {{#if website}}
                 <li>
-                  <a href="{{website}}" target="_blank" rel="noopener" aria-label="{{t "Website"}}">
+                  <a href="{{website}}" target="_blank" rel="noopener" aria-label="{{block "websiteLabel"}}">
                     <span class="icon-globe"></span>
                   </a>
                 </li>
               {{/if}}
               {{#if facebook}}
                 <li>
-                  <a href="https://facebook.com/{{facebook}}" target="_blank" rel="noopener" aria-label="Facebook">
+                  <a href="https://facebook.com/{{facebook}}" target="_blank" rel="noopener" aria-label="{{block "facebookLabel"}}">
                     <span class="icon-facebook"></span>
                   </a>
                 </li>
               {{/if}}
               {{#if twitter}}
                 <li>
-                  <a href="https://twitter.com/{{twitter}}" target="_blank" rel="noopener" aria-label="Twitter">
+                  <a href="https://twitter.com/{{twitter}}" target="_blank" rel="noopener" aria-label="{{block "twitterLabel"}}">
                     <span class="icon-twitter"></span>
                   </a>
                 </li>

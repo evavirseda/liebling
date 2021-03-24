@@ -2,6 +2,26 @@
 This template is used for the posts that are marked as pages.
 --}}
 
+{{#post}}
+  {{#has tag="#fr" visibility="internal"}}
+    {{> "fr" headerBackground=feature_image}}
+  {{else}}
+    {{#has tag="#ko" visibility="internal"}}
+      {{> "ko" headerBackground=feature_image}}
+    {{else}}
+      {{#has tag="#chi" visibility="internal"}}
+        {{> "chi" headerBackground=feature_image}}
+      {{else}}
+        {{#has tag="#jpn" visibility="internal"}}
+          {{> "jpn" headerBackground=feature_image}}
+        {{else}}
+          {{> "en" headerBackground=feature_image}}
+        {{/has}}
+      {{/has}}
+    {{/has}}
+  {{/has}}
+{{/post}}
+
 {{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
   <link rel="preload" href="{{asset "css/post.css"}}" as="style" />

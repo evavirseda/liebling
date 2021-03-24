@@ -1,0 +1,37 @@
+{{#contentFor "langSwitcher"}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-en"}}
+    {{#foreach posts}}
+      {{#if @first}}
+        <a class="text-sm" href="{{@site.url}}/en/">🇬🇧 English</a>
+      {{/if}}
+    {{/foreach}}
+  {{/get}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-fr"}}
+    {{#foreach posts}}
+      {{#if @first}}
+        <a class="text-sm" href="{{@site.url}}/fr/">🇫🇷 Français</a>
+      {{/if}}
+    {{/foreach}}
+  {{/get}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-ko"}}
+    {{#foreach posts}}
+      {{#if @first}}
+        <a class="text-sm" href="{{@site.url}}/ko/">🇰🇷 Korean</a>
+      {{/if}}
+    {{/foreach}}
+  {{/get}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-chi"}}
+    {{#foreach posts}}
+      {{#if @first}}
+        <a class="text-sm" href="{{@site.url}}/chi/">🇨🇳 Chinese</a>
+      {{/if}}
+    {{/foreach}}
+  {{/get}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-jpn"}}
+    {{#foreach posts}}
+      {{#if @first}}
+        <a class="text-sm" href="{{@site.url}}/jpn/">🇯🇵 Japanese</a>
+      {{/if}}
+    {{/foreach}}
+  {{/get}}
+{{/contentFor}}

@@ -1,11 +1,19 @@
 {{#get "posts" visibility="internal" include="tags" limit="all" filter="tag:{{post.tags.[0].slug}}+id:-{{post.id}}" }}
-  {{#foreach posts}}
-    <a href="{{url}}" style="text-decoration: none; text-align:center; width:100%; display:block">
-      {{#has tag="#en" visibility="internal"}}
-      🇺🇸
-      {{else has tag="#fr" visibility="internal"}}
-      🇫🇷
-      {{/has}}
-    </a>
-  {{/foreach}}
+  <div style="display:flex; justify-content: center">
+    {{#foreach posts}}
+      <a href="{{url}}" style="text-decoration: none; margin-left: 5px">
+        {{#has tag="#en" visibility="internal"}}
+          🇬🇧 English
+        {{else has tag="#fr" visibility="internal"}}
+          🇫🇷 Français
+        {{else has tag="#ch" visibility="internal"}}
+          🇨🇳 Chinese
+        {{else has tag="#jpn" visibility="internal"}}
+          🇯🇵 Japanese
+        {{else has tag="#ko" visibility="internal"}}
+         🇰🇷 Korean
+        {{/has}}
+      </a>
+    {{/foreach}}
+  </div>
 {{/get}}

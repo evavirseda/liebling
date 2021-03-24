@@ -2,11 +2,6 @@
 This template is used for the post page.
 --}}
 
-{{!-- Load strings translations --}}
-{{#contentFor "postTags"}}{{postTags}}{{/contentFor}}
-{{#contentFor "oneMinRead"}}{{oneMinRead}}{{/contentFor}}
-
-
 {{!-- This block preloads specific assets for the post page --}}
 {{#contentFor "preload"}}
   <link rel="preload" href="{{asset "css/post.css"}}" as="style" />
@@ -18,7 +13,7 @@ This template is used for the post page.
   <link rel="stylesheet" type="text/css" href="{{asset "css/post.css"}}" media="screen" />
 {{/contentFor}}
 
-{{!-- This block loads specific language partials --}}
+{{!-- This block loads specific language partials for related posts--}}
 {{#post}}
   {{#has tag="#fr" visibility="internal"}}
     {{> "fr" }}
@@ -26,10 +21,31 @@ This template is used for the post page.
       {{> "related-posts" langCode="fr" }}
     {{/contentFor}}
   {{else}}
-    {{> "en" }}
-    {{#contentFor "relatedPosts"}}
-      {{> "related-posts" langCode="en" }}
-    {{/contentFor}}
+    {{#has tag="#ko" visibility="internal"}}
+      {{> "ko" }}
+      {{#contentFor "relatedPosts"}}
+        {{> "related-posts" langCode="ko" }}
+      {{/contentFor}}
+    {{else}}
+      {{#has tag="#chi" visibility="internal"}}
+        {{> "chi" }}
+        {{#contentFor "relatedPosts"}}
+          {{> "related-posts" langCode="chi" }}
+        {{/contentFor}}
+      {{else}}
+        {{#has tag="#jpn" visibility="internal"}}
+          {{> "jpn" }}
+          {{#contentFor "relatedPosts"}}
+            {{> "related-posts" langCode="jpn" }}
+          {{/contentFor}}
+        {{else}}
+          {{> "en" }}
+          {{#contentFor "relatedPosts"}}
+            {{> "related-posts" langCode="en" }}
+          {{/contentFor}}
+        {{/has}}
+      {{/has}}
+    {{/has}}
   {{/has}}
 {{/post}}
 
@@ -40,13 +56,25 @@ into the {body} of the default.hbs template --}}
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{{block "header"}}}
 
+{{!-- Set post langcode --}}
 {{#post}}
   {{#has tag="#fr" visibility="internal"}}
     {{> header background=feature_image langCode='fr'}}
   {{else}}
-    {{> header background=feature_image langCode='en'}}
+    {{#has tag="#ko" visibility="internal"}}
+      {{> header background=feature_image langCode='ko'}}
+    {{else}}
+      {{#has tag="#chi" visibility="internal"}}
+        {{> header background=feature_image langCode='chi'}}
+      {{else}}
+        {{#has tag="#jpn" visibility="internal"}}
+          {{> header background=feature_image langCode='jpn'}}
+        {{else}}
+          {{> header background=feature_image langCode='en'}}
+        {{/has}}
+      {{/has}}
+    {{/has}}
   {{/has}}
-
 {{/post}}
 
 <main class="main-wrap">
@@ -80,14 +108,14 @@ into the {body} of the default.hbs template --}}
               <div class="m-share">
                 <div class="m-share__content js-sticky">
                   <a href="https://www.facebook.com/sharer/sharer.php?u={{url absolute='true'}}"
-                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Facebook">
+                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="{{block "facebookLabel"}}">
                     <span class="icon-facebook" aria-hidden="true"></span>
                   </a>
                   <a href="https://twitter.com/intent/tweet?text={{encode title}}&url={{url absolute='true'}}"
-                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="Twitter">
+                    class="m-icon-button filled in-share" target="_blank" rel="noopener" aria-label="{{block "twitterLabel"}}">
                     <span class="icon-twitter" aria-hidden="true"></span>
                   </a>
-                  <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="{{t "Scroll to top"}}">
+                  <button class="m-icon-button filled in-share progress js-scrolltop" aria-label="{{block "scrollToTopLabel"}}">
                     <span class="icon-arrow-top" aria-hidden="true"></span>
                     <svg aria-hidden="true">
                       <circle class="progress-ring__circle js-progress" fill="transparent" r="0" />
@@ -118,9 +146,9 @@ into the {body} of the default.hbs template --}}
             <div class="l-wrapper in-post">
               <div class="m-subscribe-section__content">
                 <div class="m-subscribe-section__text">
-                  <h4 class="m-subscribe-section__title">{{t "Subscribe to our newsletter"}}</h4>
+                  <h4 class="m-subscribe-section__title">{{block "subscribeNewsletterLabel"}}</h4>
                   <p class="m-subscribe-section__description">
-                    {{t "Get the latest posts delivered right to your inbox."}}
+                    {{block "subscribeNewsletterBody"}}
                   </p>
                 </div>
                 <div class="m-subscribe-section__form">
@@ -143,9 +171,9 @@ into the {body} of the default.hbs template --}}
             <div class="l-wrapper in-post">
               <div class="m-subscribe-section__content">
                 <div class="m-subscribe-section__text">
-                  <h4 class="m-subscribe-section__title">{{t "Subscribe to our newsletter"}}</h4>
+                  <h4 class="m-subscribe-section__title">{{block "subscribeNewsletterLabel"}}</h4>
                   <p class="m-subscribe-section__description">
-                    {{t "Get the latest posts delivered right to your inbox."}}
+                    {{block "subscribeNewsletterBody"}}
                   </p>
                 </div>
                 <div class="m-subscribe-section__form">
@@ -181,21 +209,21 @@ into the {body} of the default.hbs template --}}
               <ul class="m-author-links">
                 {{#if primary_author.website}}
                   <li>
-                    <a href="{{primary_author.website}}" target="_blank" rel="noopener" aria-label="{{t "Website"}}">
+                    <a href="{{primary_author.website}}" target="_blank" rel="noopener" aria-label="{{block "websiteLabel"}}">
                       <span class="icon-globe" aria-hidden="true"></span>
                     </a>
                   </li>
                 {{/if}}
                 {{#if primary_author.facebook}}
                   <li>
-                    <a href="https://facebook.com/{{primary_author.facebook}}" target="_blank" rel="noopener" aria-label="Facebook">
+                    <a href="https://facebook.com/{{primary_author.facebook}}" target="_blank" rel="noopener" aria-label="{{block "facebookLabel"}}">
                       <span class="icon-facebook" aria-hidden="true"></span>
                     </a>
                   </li>
                 {{/if}}
                 {{#if primary_author.twitter}}
                   <li>
-                    <a href="https://twitter.com/{{primary_author.twitter}}" target="_blank" rel="noopener" aria-label="Twitter">
+                    <a href="https://twitter.com/{{primary_author.twitter}}" target="_blank" rel="noopener" aria-label="{{block "twitterLabel"}}">
                       <span class="icon-twitter" aria-hidden="true"></span>
                     </a>
                   </li>
@@ -241,3 +269,6 @@ into the {body} of the default.hbs template --}}
 {{#contentFor "scripts"}}
   <script defer src="{{asset "js/post.js"}}"></script>
 {{/contentFor}}
+
+
+

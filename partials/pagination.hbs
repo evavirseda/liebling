@@ -2,19 +2,16 @@
 This pagination template is used to navigate through newer and older articles.
 --}}
 
-{{!-- Load strings translations --}}
-{{#contentFor "pageLabel"}}{{pageLabel}}{{/contentFor}}
-
 <div class="l-wrapper">
-  <nav class="m-pagination" aria-label="{{t "Pagination"}}">
+  <nav class="m-pagination" aria-label="{{block "paginationLabel"}}">
     {{#if prev}}
-      <a href="{{page_url prev}}" class="m-icon-button filled in-pagination-left" aria-label="{{t "Newer posts"}}">
+      <a href="{{page_url prev}}" class="m-icon-button filled in-pagination-left" aria-label="{{block "newerPostsLabel"}}">
         <span class="icon-arrow-left"></span>
       </a>
     {{/if}}
     <span class="m-pagination__text">{{block "pageLabel"}} {{page}} {{t "of"}} {{pages}}</span>
     {{#if next}}
-      <a href="{{page_url next}}" class="m-icon-button filled in-pagination-right" aria-label="{{t "Older posts"}}">
+      <a href="{{page_url next}}" class="m-icon-button filled in-pagination-right" aria-label="{{block "olderPostsLabel"}}">
         <span class="icon-arrow-right"></span>
       </a>
     {{/if}}

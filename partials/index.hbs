@@ -1,43 +1,23 @@
-{{!--
-This template is used for the index page.
-It can be used also as the home page or the default page.
---}}
-
-{{!-- This block preloads specific assets for the index page --}}
-{{#contentFor "preload"}}
-  <link rel="preload" href="{{asset "css/home.css"}}" as="style" />
-  <link rel="preload" href="{{asset "css/listing.css"}}" as="style" />
-  <link rel="preload" href="{{asset "js/home.js"}}" as="script" />
-{{/contentFor}}
-
-{{!-- This block loads specific styles for the index page --}}
-{{#contentFor "styles"}}
-  <link rel="stylesheet" type="text/css" href="{{asset "css/home.css"}}" media="screen" />
-  <link rel="stylesheet" type="text/css" href="{{asset "css/listing.css"}}" media="screen" />
-{{/contentFor}}
-
-{{!-- The tag below means: insert everything in this file
-into the {body} of the default.hbs template --}}
-{{!< default}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
-{{> header background=@site.cover_image}}
+{{{block "header"}}}
 
 <main class="main-wrap">
   {{!-- Inject styles of the hero image to make it responsive --}}
   {{> hero background=@site.cover_image}}
   <div class="m-hero__content" data-aos="fade-down">
-    <h1 class="m-hero-title bigger">{{@site.title}}</h1>
+    <h1 class="m-hero-title bigger">{{block "siteTitleLabel"}}</h1>
     <div class="headline-stick size-l"></div>
     {{#if @site.description}}
-      <p class="m-hero-description bigger">{{@site.description}}</p>
+      <p class="m-hero-description bigger">{{block "siteDescriptionLabel"}}</p>
     {{/if}}
     {{#if @labs.subscribers}}
-      <a href="{{@site.url}}/subscribe" class="m-button filled">{{t "Subscribe"}}</a>
+      <a href="{{@site.url}}/subscribe" class="m-button filled">{{block "subscribeLabel"}}</a>
     {{/if}}
     {{#if @labs.members}}
-      <a href="{{@site.url}}/newsletter" class="m-button filled">{{t "Subscribe"}}</a>
+      <a href="{{@site.url}}/newsletter" class="m-button filled">{{block "subscribeLabel"}}</a>
     {{/if}}
+    <p>{{{block "langSwitcher"}}}</p>
   </div>
   </section>
   <div class="l-content">
@@ -95,7 +75,7 @@ into the {body} of the default.hbs template --}}
                           <div class="m-featured-article__timestamp">
                             <span>{{date published_at}}</span>
                             <span> </span>
-                            <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
+                            {{> "reading-time"}}
                           </div>
                         </a>
                       </article>
@@ -104,10 +84,10 @@ into the {body} of the default.hbs template --}}
                 </div>
               </div>
               <div data-glide-el="controls" class="glide__arrows js-featured-slider-controls">
-                <button data-glide-dir="<" class="m-icon-button in-featured-articles glide-prev js-featured-slider-previous" aria-label="{{t "Previous"}}">
+                <button data-glide-dir="<" class="m-icon-button in-featured-articles glide-prev js-featured-slider-previous" aria-label="{{block "previousLabel"}}">
                   <span class="icon-arrow-left" aria-hidden="true"></span>
                 </button>
-                <button data-glide-dir=">" class="m-icon-button in-featured-articles glide-next js-featured-slider-next" aria-label="{{t "Next"}}">
+                <button data-glide-dir=">" class="m-icon-button in-featured-articles glide-next js-featured-slider-next" aria-label="{{block "nextLabel"}}">
                   <span class="icon-arrow-right" aria-hidden="true"></span>
                 </button>
               </div>
