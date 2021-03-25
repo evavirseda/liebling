@@ -9,7 +9,11 @@ This pagination template is used to navigate through newer and older articles.
         <span class="icon-arrow-left"></span>
       </a>
     {{/if}}
-    <span class="m-pagination__text">{{block "pageLabel"}} {{page}} {{t "of"}} {{pages}}</span>
+    {{#if en}}
+      <span class="m-pagination__text">{{t "Page"}} {{page}} {{t "of"}} {{pages}}</span>
+    {{else}}
+      <span class="m-pagination__text">{{block "pageLabel"}} {{page}} {{block "ofLabel"}} {{pages}}</span>
+    {{/if}}
     {{#if next}}
       <a href="{{page_url next}}" class="m-icon-button filled in-pagination-right" aria-label="{{block "olderPostsLabel"}}">
         <span class="icon-arrow-right"></span>

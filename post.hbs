@@ -101,7 +101,7 @@ into the {body} of the default.hbs template --}}
                   <a href="{{primary_tag.url}}" class="m-heading__meta__tag">{{primary_tag.name}}</a>
                   <span class="m-heading__meta__divider" aria-hidden="true">&bull;</span>
                 {{/if}}
-                <span class="m-heading__meta__time">{{date published_at}}</span>
+                <span class="m-heading__meta__time" id="post-date">{{date published_at}}</span>
               </div>
             </header>
             <div class="pos-relative js-post-content">
@@ -268,6 +268,7 @@ into the {body} of the default.hbs template --}}
 {{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
 {{#contentFor "scripts"}}
   <script defer src="{{asset "js/post.js"}}"></script>
+  <script defer src="{{asset "js/formatDate.js"}}"></script>
 {{/contentFor}}
 
 
