@@ -56,27 +56,6 @@ into the {body} of the default.hbs template --}}
 {{!-- Special header.hbs partial to generate the <header> tag --}}
 {{{block "header"}}}
 
-{{!-- Set post langcode --}}
-{{#post}}
-  {{#has tag="#fr" visibility="internal"}}
-    {{> header background=feature_image langCode='fr'}}
-  {{else}}
-    {{#has tag="#ko" visibility="internal"}}
-      {{> header background=feature_image langCode='ko'}}
-    {{else}}
-      {{#has tag="#chi" visibility="internal"}}
-        {{> header background=feature_image langCode='chi'}}
-      {{else}}
-        {{#has tag="#jpn" visibility="internal"}}
-          {{> header background=feature_image langCode='jpn'}}
-        {{else}}
-          {{> header background=feature_image langCode='en'}}
-        {{/has}}
-      {{/has}}
-    {{/has}}
-  {{/has}}
-{{/post}}
-
 <main class="main-wrap">
   {{#post}}
     {{!-- Inject styles of the hero image to make it responsive --}}

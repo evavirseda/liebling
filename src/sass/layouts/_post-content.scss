@@ -349,8 +349,7 @@
         padding: 0 5px;
         border-radius: 5px;
         color: #000;
-        background: 0 0;
-        text-shadow: 0 1px #fff;
+        background: #f5f2f0;
         font-family: Consolas,Monaco,'Andale Mono','Ubuntu Mono',monospace;
         text-align: left;
         white-space: pre;
@@ -365,6 +364,9 @@
         -moz-hyphens: none;
         -ms-hyphens: none;
         hyphens: none;
+        padding: 0.5rem;
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
     }
 
     pre {
