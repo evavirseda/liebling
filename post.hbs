@@ -15,35 +15,28 @@ This template is used for the post page.
 
 {{!-- This block loads specific language partials for related posts--}}
 {{#post}}
-  {{#has tag="#fr" visibility="internal"}}
-    {{> "fr" }}
+  {{#has tag="#kr" visibility="internal"}}
+    {{> "kr" }}
     {{#contentFor "relatedPosts"}}
-      {{> "related-posts" langCode="fr" }}
+      {{> "related-posts" langCode="kr" }}
     {{/contentFor}}
   {{else}}
-    {{#has tag="#ko" visibility="internal"}}
-      {{> "ko" }}
+    {{#has tag="#cn" visibility="internal"}}
+      {{> "cn" }}
       {{#contentFor "relatedPosts"}}
-        {{> "related-posts" langCode="ko" }}
+        {{> "related-posts" langCode="cn" }}
       {{/contentFor}}
     {{else}}
-      {{#has tag="#chi" visibility="internal"}}
-        {{> "chi" }}
+      {{#has tag="#jp" visibility="internal"}}
+        {{> "jp" }}
         {{#contentFor "relatedPosts"}}
-          {{> "related-posts" langCode="chi" }}
+          {{> "related-posts" langCode="jp" }}
         {{/contentFor}}
       {{else}}
-        {{#has tag="#jpn" visibility="internal"}}
-          {{> "jpn" }}
-          {{#contentFor "relatedPosts"}}
-            {{> "related-posts" langCode="jpn" }}
-          {{/contentFor}}
-        {{else}}
-          {{> "en" }}
-          {{#contentFor "relatedPosts"}}
-            {{> "related-posts" langCode="en" }}
-          {{/contentFor}}
-        {{/has}}
+        {{> "en" }}
+        {{#contentFor "relatedPosts"}}
+          {{> "related-posts" langCode="en" }}
+        {{/contentFor}}
       {{/has}}
     {{/has}}
   {{/has}}

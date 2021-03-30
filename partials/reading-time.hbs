@@ -1,17 +1,14 @@
-{{#has tag="#fr" visibility="internal"}}
-  <span>{{reading_time minute="1 min de lecture" minutes="% min de lecture"}}</span>
+
+{{#has tag="#kr" visibility="internal"}}
+  <span>{{reading_time minute="ko 1 min de lecture" minutes="% ko min de lecture"}}</span>
 {{else}}
-  {{#has tag="#ko" visibility="internal"}}
-    <span>{{reading_time minute="ko 1 min de lecture" minutes="% ko min de lecture"}}</span>
+  {{#has tag="#cn" visibility="internal"}}
+    <span>{{reading_time minute="cn 1 min de lecture" minutes="% cn min de lecture"}}</span>
   {{else}}
-    {{#has tag="#chi" visibility="internal"}}
-      <span>{{reading_time minute="chi 1 min de lecture" minutes="% chi min de lecture"}}</span>
+    {{#has tag="#jp" visibility="internal"}}
+      <span>{{reading_time minute="jp 1 min de lecture" minutes="% jp min de lecture"}}</span>
     {{else}}
-      {{#has tag="#jpn" visibility="internal"}}
-        <span>{{reading_time minute="jpn 1 min de lecture" minutes="% jpn min de lecture"}}</span>
-      {{else}}
-        <span>{{reading_time minute="1 min read" minutes="% min read"}}</span>
-      {{/has}}
+      <span>{{reading_time minute="1 min read" minutes="% min read"}}</span>
     {{/has}}
   {{/has}}
 {{/has}}

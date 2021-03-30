@@ -1,29 +1,29 @@
 const LANGCODE = window.location.pathname.split('/')[1]
-let currentPostDate = document.getElementById("post-date").innerHTML
+let currentPostDate = document.getElementById("post-date")
 let relatedPostsDates = document.getElementsByClassName("related-post-date")
 let translatedPostDate = ''
 
-function translate(element, langcode){
+function translateDate(element, langcode){
     switch(langcode){
-        case 'chi':
+        case 'cn':
             moment.locale('zh-cn')
-            translatedPostDate= moment(currentPostDate).format('LL')
+            translatedPostDate= moment(element.innerHTML).format('LL')
             break;
-        case 'ko':
+        case 'kr':
             moment.locale('ko')
-            translatedPostDate= moment(currentPostDate).format('LL')
+            translatedPostDate= moment(element.innerHTML).format('LL')
             break;
-        case 'ja':
+        case 'jp':
             moment.locale('ja')
-            translatedPostDate= moment(currentPostDate).format('LL')
+            translatedPostDate= moment(element.innerHTML).format('LL')
             break;
     }
     element.innerHTML = translatedPostDate;
 }
 
-if(LANGCODE != 'en'){
+if(LANGCODE){
     //translate current post date
-    translate(document.getElementById("post-date"), LANGCODE) 
+    if(currentPostDate) translateDate(document.getElementById("post-date"), LANGCODE) 
     //translate related posts date
-    Array.from(relatedPostsDates).forEach((relatedPostDate) => { translate(relatedPostDate, LANGCODE) });
+    if(relatedPostsDates) Array.from(relatedPostsDates).forEach((relatedPostDate) => { translateDate(relatedPostDate, LANGCODE) });
 }

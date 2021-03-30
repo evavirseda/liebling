@@ -1,36 +1,29 @@
 {{#contentFor "langSwitcher"}}
-  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-en"}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:-[hash-cn,hash-jp,hash-kr]"}}
     {{#foreach posts}}
       {{#if @first}}
-        <a class="text-sm" href="{{@site.url}}/en/">🇬🇧 English</a>
+        <a class="text-sm" href="{{@site.url}}">🇬🇧 English</a>
       {{/if}}
     {{/foreach}}
   {{/get}}
-  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-fr"}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-kr"}}
     {{#foreach posts}}
       {{#if @first}}
-        <a class="text-sm" href="{{@site.url}}/fr/">🇫🇷 Français</a>
+        <a class="text-sm" href="{{@site.url}}/kr/">🇰🇷 Korean</a>
       {{/if}}
     {{/foreach}}
   {{/get}}
-  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-ko"}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-cn"}}
     {{#foreach posts}}
       {{#if @first}}
-        <a class="text-sm" href="{{@site.url}}/ko/">🇰🇷 Korean</a>
+        <a class="text-sm" href="{{@site.url}}/cn/">🇨🇳 Chinese</a>
       {{/if}}
     {{/foreach}}
   {{/get}}
-  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-chi"}}
+  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-jp"}}
     {{#foreach posts}}
       {{#if @first}}
-        <a class="text-sm" href="{{@site.url}}/chi/">🇨🇳 Chinese</a>
-      {{/if}}
-    {{/foreach}}
-  {{/get}}
-  {{#get "posts" visibility="internal" limit="1" filter="tag:hash-jpn"}}
-    {{#foreach posts}}
-      {{#if @first}}
-        <a class="text-sm" href="{{@site.url}}/jpn/">🇯🇵 Japanese</a>
+        <a class="text-sm" href="{{@site.url}}/jp/">🇯🇵 Japanese</a>
       {{/if}}
     {{/foreach}}
   {{/get}}

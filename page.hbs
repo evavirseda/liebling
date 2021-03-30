@@ -3,20 +3,16 @@ This template is used for the posts that are marked as pages.
 --}}
 
 {{#post}}
-  {{#has tag="#fr" visibility="internal"}}
-    {{> "fr" headerBackground=feature_image}}
+  {{#has tag="#kr" visibility="internal"}}
+    {{> "kr" headerBackground=feature_image}}
   {{else}}
-    {{#has tag="#ko" visibility="internal"}}
-      {{> "ko" headerBackground=feature_image}}
+    {{#has tag="#cn" visibility="internal"}}
+      {{> "cn" headerBackground=feature_image}}
     {{else}}
-      {{#has tag="#chi" visibility="internal"}}
-        {{> "chi" headerBackground=feature_image}}
+      {{#has tag="#jp" visibility="internal"}}
+        {{> "jp" headerBackground=feature_image}}
       {{else}}
-        {{#has tag="#jpn" visibility="internal"}}
-          {{> "jpn" headerBackground=feature_image}}
-        {{else}}
-          {{> "en" headerBackground=feature_image}}
-        {{/has}}
+        {{> "en" headerBackground=feature_image}}
       {{/has}}
     {{/has}}
   {{/has}}
@@ -41,18 +37,23 @@ into the {body} of the default.hbs template --}}
 {{#post}}
   {{> header background=feature_image}}
 {{/post}}
+{{> "page-lang-switcher"}}
+{{{block "header"}}}
 
 <main class="main-wrap">
+
   {{!-- Everything inside the #post tags pulls data from the post --}}
   {{#post}}
     {{!-- Inject styles of the hero image to make it responsive --}}
     {{> hero background=feature_image}}
+
     <div class="m-hero__content" data-aos="fade-down">
       <h1 class="m-hero-title bigger">{{title}}</h1>
       {{#if custom_excerpt}}
         <p class="m-hero-description">{{custom_excerpt}}</p>
       {{/if}}
     </div>
+
     </section>
     <article>
       <div class="l-content">

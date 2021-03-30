@@ -13,26 +13,22 @@ routes:
     data: page.account
 
 collections:
-  /en/:
-    permalink: /en/{slug}/
-    template: index-en
-    filter: 'tag:hash-en'
-  /fr/:
-    permalink: /fr/{slug}/
-    template: index-fr
-    filter: 'tag:hash-fr'
-  /ko/:
-    permalink: /ko/{slug}/
-    template: index-ko
-    filter: 'tag:hash-ko'
-  /chi/:
-    permalink: /chi/{slug}/
-    template: index-chi
-    filter: 'tag:hash-chi'
-  /jpn/:
-    permalink: /jpn/{slug}/
-    template: index-jpn
-    filter: 'tag:hash-jpn'
+  /:
+    permalink: /{slug}/
+    template: index
+    filter: 'tag:-[hash-cn,hash-jp,hash-kr]'
+  /kr/:
+    permalink: /kr/{slug}/
+    template: index-kr
+    filter: 'tag:hash-kr'
+  /cn/:
+    permalink: /cn/{slug}/
+    template: index-cn
+    filter: 'tag:hash-cn'
+  /jp/:
+    permalink: /jp/{slug}/
+    template: index-jp
+    filter: 'tag:hash-jp'
 
 taxonomies:
   tag: /tag/{slug}/

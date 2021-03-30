@@ -4,11 +4,6 @@
 In order to get every content translated please follow steps below logging is as admin in Ghost admin panel:
 
 
-## Upload redirects.json file
-
-This file is located in root directory of this project. Please upload it to  Settings - Labs - Redirects - Upload redirects JSON
-
-
 ## Upload routes.yaml file
 
 This file is located in root directory of this project. Please upload it to Settings - Labs - Routes - Upload routes YAML
@@ -16,20 +11,20 @@ This file is located in root directory of this project. Please upload it to Sett
 
 ## Translating posts
 
-1. Create or edit a post
+1. Create or edit a post in english
 	* add in a tag to identify the post: Getting Started / Technology / Announcements **This tag needs to come up the first on the list of tags**
-	* add in a tag to specify the language: #en / #ko / #jpn / #chi **# is needed**
 2. Create another post with same content in a different language
 	* add in the same identifier tag we used in first post **This tag needs to come up the first on the list of tags**
-	* add in another tag to identify the new language: #en / #ko / #jpn / #chi 
+	* add in another tag to identify the new language: / #kr / #jp / #cn **# is needed**
 	
 
 ## Translating pages
 
-1. Create or edit a page
-	* add in a tag to specify the language: #en / #ko / #jpn / #chi 
+1. Create or edit a page in english
+	* add in a tag to identify the page: Getting Started / Technology / Announcements **This tag needs to come up the first on the list of tags**
 2. Create another post with same content in a different language
-	* add in another tag to identify the new language: #en / #ko / #jpn / #chi 
+	* add in the same identifier tag we used in first page  **This tag needs to come up the first on the list of tags**
+	* add in another tag to identify the new language:  / #kr / #cn / #cn 
 
 
 ## Multilingual navigation
@@ -39,8 +34,7 @@ This file is located in root directory of this project. Please upload it to Sett
 Menu items are picked from standard pages created in admin panel. In order to make a standar page show up in navigation follow steps below:
 
 2. Create or edit a page
-	* add in a tag to specify the language: #en / #ko / #jpn / #chi
-	* add in a tag to make it belong to nav: #en-nav / #chi-nav / #ko-nav / #jpn-nav  **# is needed**
+	* add in a tag to make it belong to nav: #en-nav / #cn-nav / #kr-nav / #jp-nav  **# is needed**
 
 
 ## Translating dates
@@ -58,9 +52,9 @@ Please include scripts below:
 
 Each language has its own translated strings file located in /partials
 * en.hbs
-* chi.hbs
-* jpn.hbs
-* ko.hbs
+* cn.hbs
+* jp.hbs
+* kr.hbs
 
 Please edit these files to add in your custom translated strings
 
