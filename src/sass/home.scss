@@ -5,7 +5,7 @@
 @import 'components/articles/featured-article';
 
 // custom home hero
-body.home-template .m-hero,
+body .homepage-bg .m-hero,
 [class="paged"] .m-hero {
     background: url('/assets/images/blog.iota.org-light-mode-header.jpg');
     background-position: center;
@@ -18,7 +18,7 @@ body.home-template .m-hero,
     }
 }
 
-[data-theme='dark'] body.home-template .m-hero,
+[data-theme='dark'] body .homepage-bg .m-hero,
 [data-theme='dark'] [class="paged"] .m-hero {
     background: url('/assets/images/blog.iota.org-dark-mode-header.jpg');
     background-position: center;
@@ -32,7 +32,7 @@ body.home-template .m-hero,
 }
 
 @media (prefers-color-scheme: dark) {
-    :root:not([data-theme='light']) body.home-template .m-hero,
+    :root:not([data-theme='light']) body .homepage-bg .m-hero,
     :root:not([data-theme='light']) [class="paged"] .m-hero {
         background: url('/assets/images/blog.iota.org-dark-mode-header.jpg');
         background-position: center;
