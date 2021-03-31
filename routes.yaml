@@ -11,6 +11,15 @@ routes:
   /account/:
     template: members/account
     data: page.account
+  /kr/tags/:
+    controller: channel
+    template: page-tags
+    filter: 'tag:announcements'
+    
+#  /tags/:
+#    template: page-tags
+#  /kr/tags/:
+#    template: page-tags
 
 collections:
   /:
@@ -29,6 +38,7 @@ collections:
     permalink: /jp/{slug}/
     template: index-jp
     filter: 'tag:hash-jp'
+
 
 taxonomies:
   tag: /tag/{slug}/

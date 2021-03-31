@@ -3,25 +3,8 @@ This template is used for the tags page.
 You must first create a page called Tags in the dashboard to enable it.
 --}}
 
-{{#post}}
-  {{#has tag="#kr" visibility="internal"}}
     {{> "kr" }}
     {{> "header" langCode="kr" }}
-  {{else}}
-    {{#has tag="#cn" visibility="internal"}}
-      {{> "cn" }}
-      {{> "header" langCode="cn" }}
-    {{else}}
-      {{#has tag="#jp" visibility="internal"}}
-        {{> "jp" }}
-        {{> "header" langCode="jp" }}
-      {{else}}
-        {{> "en" }}
-        {{> "header" langCode="en" english="true" }}
-      {{/has}}
-    {{/has}}
-  {{/has}}
-{{/post}}
 
 {{!-- This block preloads specific assets for the tags page --}}
 {{#contentFor "preload"}}
@@ -54,7 +37,13 @@ into the {body} of the default.hbs template --}}
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       <div class="l-tags-container">
         {{#get 'tags' limit='all' include='count.posts, posts'}}
+
+
           {{#foreach tags}}
+            {{#foreach posts}}
+              <p>a post</p>
+            {{/foreach}}
+            {{count.posts}}
             <div class="m-tag-card">
               <a href="{{url}}" class="m-tag-card__link {{#unless feature_image}}no-picture{{/unless}}" aria-label="{{name}}">
                 {{#if feature_image}}
