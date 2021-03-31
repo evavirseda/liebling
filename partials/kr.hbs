@@ -1,5 +1,11 @@
+{{!-- Please don't edit "slug", "lang" and "header". Leave them as they are--}}
+{{#contentFor "slug"}}kr{{/contentFor}}
 {{#contentFor "lang"}}kr{{/contentFor}}
+{{#contentFor "header"}}
+  {{> header background=headerBackground langCode="kr"}}
+{{/contentFor}}
 
+{{!-- Please add your translations below--}}
 {{#contentFor "accountActivatedLabel"}}Success! Your account is fully activated, you now have access to all content.{{/contentFor}}
 {{#contentFor "checkInboxLabel"}}Now check your inbox and click the link to confirm your subscription.{{/contentFor}}
 {{#contentFor "closeLabel"}}Close{{/contentFor}}
@@ -49,6 +55,3 @@
 {{#contentFor "welcomeBackLabel"}}Welcome back! You've successfully signed in.{{/contentFor}}
 {{#contentFor "yourEmailLabel"}}Your email address{{/contentFor}}
 
-{{#contentFor "header"}}
-  {{> header background=headerBackground langCode="kr"}}
-{{/contentFor}}

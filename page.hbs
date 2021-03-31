@@ -1,18 +1,17 @@
 {{!--
 This template is used for the posts that are marked as pages.
 --}}
-
 {{#post}}
   {{#has tag="#kr" visibility="internal"}}
-    {{> "kr" headerBackground=feature_image}}
+    {{> "kr" }}
   {{else}}
     {{#has tag="#cn" visibility="internal"}}
-      {{> "cn" headerBackground=feature_image}}
+      {{> "cn" }}
     {{else}}
       {{#has tag="#jp" visibility="internal"}}
-        {{> "jp" headerBackground=feature_image}}
+        {{> "jp" }}
       {{else}}
-        {{> "en" headerBackground=feature_image}}
+        {{> "en" }}
       {{/has}}
     {{/has}}
   {{/has}}
@@ -33,11 +32,8 @@ This template is used for the posts that are marked as pages.
 into the {body} of the default.hbs template --}}
 {{!< default}}
 
-{{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
-  {{> header background=feature_image}}
-{{/post}}
 {{> "page-lang-switcher"}}
+
 {{{block "header"}}}
 
 <main class="main-wrap">

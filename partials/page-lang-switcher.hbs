@@ -1,7 +1,7 @@
 {{#get "pages" include="tags" limit="all" filter="tag:{{post.tags.[0].slug}}+id:-{{post.id}}" }}
     {{#foreach pages as |page|}}
       {{#has tag="#multilang" visibility="internal"}}
-        <a href="{{url}}" style="text-decoration: none; text-align:center; z-index:100; margin-top:100px">
+        <a href="{{url}}" style="text-decoration: none; text-align:center; z-index:5; margin-top:100px">
           {{#has tag="#cn"}}
             🇨🇳 Chinese
           {{else has tag="#jp"}}
