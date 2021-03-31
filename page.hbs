@@ -4,14 +4,18 @@ This template is used for the posts that are marked as pages.
 {{#post}}
   {{#has tag="#kr" visibility="internal"}}
     {{> "kr" }}
+    {{> "header" langCode="kr" }}
   {{else}}
     {{#has tag="#cn" visibility="internal"}}
       {{> "cn" }}
+      {{> "header" langCode="cn" }}
     {{else}}
       {{#has tag="#jp" visibility="internal"}}
         {{> "jp" }}
+        {{> "header" langCode="jp" }}
       {{else}}
         {{> "en" }}
+        {{> "header" langCode="en" }}
       {{/has}}
     {{/has}}
   {{/has}}
@@ -33,8 +37,6 @@ into the {body} of the default.hbs template --}}
 {{!< default}}
 
 {{> "page-lang-switcher"}}
-
-{{{block "header"}}}
 
 <main class="main-wrap">
 

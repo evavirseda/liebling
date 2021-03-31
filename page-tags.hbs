@@ -3,6 +3,26 @@ This template is used for the tags page.
 You must first create a page called Tags in the dashboard to enable it.
 --}}
 
+{{#post}}
+  {{#has tag="#kr" visibility="internal"}}
+    {{> "kr" }}
+    {{> "header" langCode="kr" }}
+  {{else}}
+    {{#has tag="#cn" visibility="internal"}}
+      {{> "cn" }}
+      {{> "header" langCode="cn" }}
+    {{else}}
+      {{#has tag="#jp" visibility="internal"}}
+        {{> "jp" }}
+        {{> "header" langCode="jp" }}
+      {{else}}
+        {{> "en" }}
+        {{> "header" langCode="en" english="true" }}
+      {{/has}}
+    {{/has}}
+  {{/has}}
+{{/post}}
+
 {{!-- This block preloads specific assets for the tags page --}}
 {{#contentFor "preload"}}
   <link rel="preload" href="{{asset "css/tags.css"}}" as="style" />
@@ -17,10 +37,6 @@ You must first create a page called Tags in the dashboard to enable it.
 into the {body} of the default.hbs template --}}
 {{!< default}}
 
-{{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#post}}
-  {{> header background=feature_image}}
-{{/post}}
 
 <main class="main-wrap tags-template">
   {{#post}}
@@ -37,7 +53,7 @@ into the {body} of the default.hbs template --}}
   <div class="l-content">
     <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
       <div class="l-tags-container">
-        {{#get 'tags' limit='all' include='count.posts'}}
+        {{#get 'tags' limit='all' include='count.posts, posts'}}
           {{#foreach tags}}
             <div class="m-tag-card">
               <a href="{{url}}" class="m-tag-card__link {{#unless feature_image}}no-picture{{/unless}}" aria-label="{{name}}">

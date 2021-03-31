@@ -20,8 +20,8 @@ function translateDate(element, langcode){
     }
     element.innerHTML = translatedPostDate;
 }
-
-if(LANGCODE){
+console.log(LANGCODE)
+if(LANGCODE =='jp' || LANGCODE =='kr' || LANGCODE =='cn'){
     //translate current post date
     if(currentPostDate) translateDate(document.getElementById("post-date"), LANGCODE) 
     //translate related posts date

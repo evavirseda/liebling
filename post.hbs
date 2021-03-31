@@ -17,23 +17,27 @@ This template is used for the post page.
 {{#post}}
   {{#has tag="#kr" visibility="internal"}}
     {{> "kr" }}
+    {{> "header" langCode="kr" }}
     {{#contentFor "relatedPosts"}}
       {{> "related-posts" langCode="kr" }}
     {{/contentFor}}
   {{else}}
     {{#has tag="#cn" visibility="internal"}}
       {{> "cn" }}
+      {{> "header" langCode="cn" }}
       {{#contentFor "relatedPosts"}}
         {{> "related-posts" langCode="cn" }}
       {{/contentFor}}
     {{else}}
       {{#has tag="#jp" visibility="internal"}}
         {{> "jp" }}
+        {{> "header" langCode="jp" }}
         {{#contentFor "relatedPosts"}}
           {{> "related-posts" langCode="jp" }}
         {{/contentFor}}
       {{else}}
         {{> "en" }}
+        {{> "header" langCode="en" english="true"}}
         {{#contentFor "relatedPosts"}}
           {{> "related-posts" langCode="en" }}
         {{/contentFor}}
@@ -47,7 +51,6 @@ into the {body} of the default.hbs template --}}
 {{!< default}}
 
 {{!-- Special header.hbs partial to generate the <header> tag --}}
-{{{block "header"}}}
 
 <main class="main-wrap">
   {{#post}}
@@ -69,10 +72,10 @@ into the {body} of the default.hbs template --}}
             <header class="m-heading">
               <h1 class="m-heading__title in-post">{{title}}</h1>
               <div class="m-heading__meta">
-                {{#if primary_tag}}
-                  <a href="{{primary_tag.url}}" class="m-heading__meta__tag">{{primary_tag.name}}</a>
+                {{#foreach tags limit="1"}}
+                  <a href="{{url}}" class="m-heading__meta__tag" title="{{name}}">{{name}}</a>
                   <span class="m-heading__meta__divider" aria-hidden="true">&bull;</span>
-                {{/if}}
+                {{/foreach}}
                 <span class="m-heading__meta__time" id="post-date">{{date published_at}}</span>
               </div>
             </header>

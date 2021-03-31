@@ -6,6 +6,9 @@ It can be used also as the home page or the default page.
 {{!-- This block sets the language blocks --}}
 {{> "jp" headerBackground=@site.cover_image}}
 
+{{#contentFor "header"}}
+  {{> header langCode="jp"}}
+{{/contentFor}}
 {{!-- This block sets the language switcher --}}
 {{> "lang-switcher"}}
 
