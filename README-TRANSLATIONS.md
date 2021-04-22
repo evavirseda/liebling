@@ -42,6 +42,12 @@ Menu items are picked from standard pages created in admin panel. In order to ma
 	* add in a tag to make it belong to nav: `#en-nav / #cn-nav / #kr-nav / #jp-nav`  **# is needed**
 
 
+### Show Tags page in Navigation
+
+Tags page is common to all languages and therefore it should display in all navbars. To do so please add in tags below to Tags page:
+`#en-nav / #cn-nav / #kr-nav / #jp-nav`
+
+
 ## Translating dates
 
 Dates are translated using momentjs. There's a custom script that uses this library `/assets/js/formatDate.js`
