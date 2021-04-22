@@ -12,7 +12,7 @@ This file is located in root directory of this project. Please upload it to Sett
 ## Translating posts
 
 1. Create or edit a post in english
-	* add in a tag to identify the post: `Getting Started / Technology / Announcements` **This tag needs to come up the first on the list of tags**
+	* add in a tag to identify the post: `#getting-started / #technology / #announcements` **This tag needs to come up the first on the list of tags**
 	* add in a tag to set the content as translatable: `#multilang` **# is needed**
 2. Create another post with same content in a different language
 	* add in the same identifier tag we used in first post **This tag needs to come up the first on the list of tags**
@@ -24,7 +24,7 @@ This file is located in root directory of this project. Please upload it to Sett
 ## Translating pages
 
 1. Create or edit a page in english
-	* add in a tag to identify the page: `Getting Started / Technology / Announcements` **This tag needs to come up the first on the list of tags**
+	* add in a tag to identify the page: `#getting-started / #technology / #announcements` **This tag needs to come up the first on the list of tags**
 	* add in a tag to set the content as translatable: `#multilang` **# is needed**
 2. Create another post with same content in a different language
 	* add in the same identifier tag we used in first page  **This tag needs to come up the first on the list of tags**

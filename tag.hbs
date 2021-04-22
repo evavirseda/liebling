@@ -15,11 +15,8 @@ This template is used for the tag page.
 {{!-- The tag below means: insert everything in this file
 into the {body} of the default.hbs template --}}
 {{!< default}}
-
-{{!-- Special header.hbs partial to generate the <header> tag --}}
-{{#tag}}
-  {{> header background=feature_image}}
-{{/tag}}
+{{> "en" }}
+{{> "header" langCode="en" english="true" }}
 
 <main class="main-wrap">
   {{!-- Everything inside the #tag tags pulls data from the tag --}}
