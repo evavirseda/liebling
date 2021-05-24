@@ -70,6 +70,9 @@
                                 {{primary_tag.name}}
                               </a>
                             {{/if}}
+                            {{#foreach tags limit="1"}}
+                              <a href="{{url}}" class="m-featured-article__tag">{{name}}</a>
+                            {{/foreach}}
                             <h2 class="m-featured-article__title js-featured-article-title" title="{{title}}">
                               {{title}}
                             </h2>
@@ -137,11 +140,9 @@
                             <span>{{t "Featured"}}</span>
                           </div>
                           <a href="{{url}}" class="m-featured-article__content">
-                            {{#if primary_tag}}
-                              <a href="{{primary_tag.url}}" class="m-featured-article__tag">
-                                {{primary_tag.name}}
-                              </a>
-                            {{/if}}
+                            {{#foreach tags limit="1"}}
+                              <a href="{{url}}" class="m-featured-article__tag">{{name}}</a>
+                            {{/foreach}}
                             <h2 class="m-featured-article__title js-featured-article-title" title="{{title}}">
                               {{title}}
                             </h2>
