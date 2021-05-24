@@ -72,6 +72,8 @@
                             {{/if}}
                             {{#foreach tags limit="1"}}
                               <a href="{{url}}" class="m-featured-article__tag">{{name}}</a>
+                            {{else}}
+                              <a href="{{url}}"></a>
                             {{/foreach}}
                             <h2 class="m-featured-article__title js-featured-article-title" title="{{title}}">
                               {{title}}
@@ -142,6 +144,8 @@
                           <a href="{{url}}" class="m-featured-article__content">
                             {{#foreach tags limit="1"}}
                               <a href="{{url}}" class="m-featured-article__tag">{{name}}</a>
+                            {{else}}
+                              <a href="{{url}}"></a>
                             {{/foreach}}
                             <h2 class="m-featured-article__title js-featured-article-title" title="{{title}}">
                               {{title}}
