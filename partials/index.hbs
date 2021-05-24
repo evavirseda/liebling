@@ -12,9 +12,6 @@
       {{#if @site.description}}
         <p class="m-hero-description bigger">{{block "siteDescriptionLabel"}}</p>
       {{/if}}
-      {{#if @labs.subscribers}}
-        <a href="{{@site.url}}/subscribe" class="m-button filled">{{block "subscribeLabel"}}</a>
-      {{/if}}
       {{#if @labs.members}}
         <a href="{{@site.url}}/newsletter" class="m-button filled">{{block "subscribeLabel"}}</a>
       {{/if}}
