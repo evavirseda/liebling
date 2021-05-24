@@ -24,12 +24,10 @@
         </a>
       {{/if}}
     </div>
-    {{#if primary_tag}}
+      {{#foreach tags limit="1"}}
       <div class="m-article-card__info">
-        <a href="{{primary_tag.url}}" class="m-article-card__tag {{primary_tag.slug}}">{{primary_tag.name}}</a>
-    {{else}}
-      <div class="m-article-card__info no-tag">
-    {{/if}}
+        <a href="{{url}}" class="m-article-card__tag" title="{{name}}">{{name}}</a>
+      {{/foreach}}
       <a href="{{url}}" class="m-article-card__info-link" aria-label="{{block "titleLabel"}}">
         <div>
           <h2 class="m-article-card__title js-article-card-title {{#unless feature_image}}js-article-card-title-no-image{{/unless}}" title="{{title}}">
