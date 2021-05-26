@@ -60,8 +60,10 @@ into the {body} of the default.hbs template --}}
   {{/post}}
   
   <article>
-    <div class="l-content in-post">
-      {{> "post-lang-switcher"}}
+     <div class="l-content in-post">
+      <div data-aos="fade-up" data-aos-delay="300">
+        {{> "post-lang-switcher"}}
+      </div>
 
       {{!-- Everything inside the #post tags pulls data from the post --}}
       {{#post}}
