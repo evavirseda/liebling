@@ -8,7 +8,7 @@ body {
     color: var(--primary-foreground-color);
     font-size: 1rem;
     line-height: 1.5rem;
-    font-family: 'Inter', sans-serif;
+    font-family: "Inter", sans-serif;
     font-display: swap;
     overflow-x: hidden;
     background-color: var(--page-bg-color);
@@ -18,7 +18,7 @@ body {
     &.share-menu-displayed {
         padding-bottom: 45px;
 
-        @include respond-to('medium') {
+        @include respond-to("medium") {
             padding-bottom: 0;
         }
     }
@@ -66,7 +66,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Metropolis Bold';
+    font-family: "Metropolis Bold";
     color: var(--titles-color);
     line-height: 1.25;
     letter-spacing: 0.02rem;
@@ -76,7 +76,7 @@ h6 {
 h1 {
     font-size: 2.25rem;
 
-    @include respond-to('medium') {
+    @include respond-to("medium") {
         font-size: 2.5rem;
         margin-bottom: 20px;
     }
@@ -84,14 +84,14 @@ h1 {
 
 h2 {
     font-size: 2rem;
-    @include respond-to('medium') {
+    @include respond-to("medium") {
         font-size: 2.25rem;
     }
 }
 
 h3 {
     font-size: 1.75rem;
-    @include respond-to('medium') {
+    @include respond-to("medium") {
         font-size: 1.875rem;
     }
 }
@@ -125,4 +125,74 @@ h6 {
     &.size-xl {
         width: 120px;
     }
+}
+
+.js-post-container {
+    position: relative;
+}
+.toc {
+    text-decoration: none;
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: white;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    margin-left: -20px;
+
+    .toc-list {
+        .is-collapsible{
+            .toc-list-item {
+            display:none;
+            }
+        }
+        .toc-list-item {
+            list-style: disc;
+            margin-bottom: 0;
+            .toc-link {
+                text-decoration: none;
+                &::before {
+                    width: 0;
+                }
+            }
+        }
+    }
+
+    @include respond-to("extra-large") {
+        overflow-y: inherit !important;
+        height: 0;
+        .toc-list {
+            position: absolute;
+            top: 0;
+            left: 105%;
+            width: 40%;
+            height: auto;
+            background-color: white;
+            .is-collapsible, .is-collapsed{
+                .toc-list-item {
+                display:none;
+                }
+            }
+            .toc-list-item {
+                list-style: none;
+                .toc-link {
+                    text-decoration: none;
+
+                    &::before {
+                        width: 2px;
+                    }
+                }
+                .is-active-toc {
+                    &::before {
+                        background-color: #36a1ac;
+                    }
+                }
+            }
+        }
+    }
+}
+.is-active-li {
+    color: #36a1ac;
+    margin-bottom:0;
 }

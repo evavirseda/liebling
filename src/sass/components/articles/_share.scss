@@ -4,15 +4,15 @@
   bottom: 0;
   width: 100%;
   height: 45px;
-  z-index: 3;
+  z-index: 7;
   background-color: var(--transparent-background-color);
-  @include bs(0 -4px 10px rgba(0,0,0,0.1));
+  @include bs(0 -4px 10px rgba(0, 0, 0, 0.1));
 
-  @include respond-to('medium') {
+  @include respond-to("medium") {
     height: 50px;
   }
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     position: absolute;
     top: 0;
     left: auto;
@@ -23,13 +23,13 @@
     @include bs(0 0 0 transparent);
   }
 
-  @include respond-to('extra-large') {
+  @include respond-to("extra-large") {
     width: 50px;
-    right: -175px;
+    right: -545px;
   }
 
-  @include respond-to('largest') {
-    right: -200px;
+  @include respond-to("largest") {
+    right: -445px;
   }
 
   a {
@@ -39,7 +39,7 @@
   a:first-of-type {
     margin-left: 0;
 
-    @include respond-to('large') {
+    @include respond-to("large") {
       margin-bottom: 0;
     }
   }
@@ -51,16 +51,16 @@
 
 .rtl {
   .m-share {
-    @include respond-to('large') {
+    @include respond-to("large") {
       right: auto;
       left: -75px;
     }
 
-    @include respond-to('extra-large') {
+    @include respond-to("extra-large") {
       left: -175px;
     }
 
-    @include respond-to('largest') {
+    @include respond-to("largest") {
       left: -200px;
     }
   }
@@ -72,9 +72,9 @@
   justify-content: center;
   height: 100%;
 
-  @include respond-to('large') {
+  @include respond-to("large") {
     position: sticky;
-    top: 100px;
+    top: 750px;
     flex-direction: column-reverse;
     align-items: flex-start;
     height: auto;
