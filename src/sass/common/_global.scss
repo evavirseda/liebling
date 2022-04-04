@@ -134,12 +134,10 @@ h6 {
     text-decoration: none;
     position: sticky;
     top: 0;
-    z-index: 5;
-    background-color: var(--page-bg-color);
-    padding-bottom: 10px;
+    z-index: 0;
+    background-color: var(--background-color);
     padding-left: 20px;
     margin-left: -20px;
-
     .toc-list {
         .is-collapsible {
             .toc-list-item {
@@ -164,10 +162,10 @@ h6 {
         .toc-list {
             position: absolute;
             top: 70px;
-            right: -7px;
+            right: -760px;
             width: 250px;
             height: auto;
-            background-color: var(--page-bg-color);
+            background-color: var(--background-color);
             .is-collapsible,
             .is-collapsed {
                 .toc-list-item {
