@@ -135,16 +135,15 @@ h6 {
     position: sticky;
     top: 0;
     z-index: 5;
-    background-color: white;
-    padding-top: 50px;
+    background-color: var(--page-bg-color);
     padding-bottom: 10px;
     padding-left: 20px;
     margin-left: -20px;
 
     .toc-list {
-        .is-collapsible{
+        .is-collapsible {
             .toc-list-item {
-            display:none;
+                display: none;
             }
         }
         .toc-list-item {
@@ -164,14 +163,15 @@ h6 {
         height: 0;
         .toc-list {
             position: absolute;
-            top: 0;
-            left: 105%;
-            width: 40%;
+            top: 70px;
+            right: -7px;
+            width: 250px;
             height: auto;
-            background-color: white;
-            .is-collapsible, .is-collapsed{
+            background-color: var(--page-bg-color);
+            .is-collapsible,
+            .is-collapsed {
                 .toc-list-item {
-                display:none;
+                    display: none;
                 }
             }
             .toc-list-item {
@@ -194,5 +194,5 @@ h6 {
 }
 .is-active-li {
     color: #36a1ac;
-    margin-bottom:0;
+    margin-bottom: 0;
 }
