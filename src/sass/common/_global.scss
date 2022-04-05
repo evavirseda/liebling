@@ -138,6 +138,9 @@ h6 {
     background-color: var(--background-color);
     padding-left: 20px;
     margin-left: -20px;
+    width: 100vw;
+    padding-top: 60px;
+    padding-bottom: 20px;
     .toc-list {
         .is-collapsible {
             .toc-list-item {
@@ -159,6 +162,8 @@ h6 {
     @include respond-to("extra-large") {
         overflow-y: inherit !important;
         height: 0;
+        padding-top: 0px;
+        padding-bottom: 0px;
         .toc-list {
             position: absolute;
             top: 70px;
