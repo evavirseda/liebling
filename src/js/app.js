@@ -181,7 +181,6 @@ $(() => {
     })
 
     const openExternalLinksInDifferentTab = () => {
-        () => {
             let links = $('a');
             $.each(links, function (index, value) {
                 if (!value.href.includes(window.location.hostname)) {
@@ -192,7 +191,6 @@ $(() => {
                     }
                 }
             });
-        }
     }
 
     $openSearch.on('click', () => {
