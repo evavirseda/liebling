@@ -221,7 +221,17 @@ $(() => {
   window.addEventListener('resize', onResizing, { passive: true })
 })
 
+const openExternalLinksInDifferentTab = () => {
+  let links = $('a')
+  $.each(links, function(index, value) {
+      if (!value.href.includes(window.location.hostname)) {
+          value.target = '_blank'
+      }
+  })
+}
+
 $(window).on('load', () => {
   prepareProgressCircle()
+  openExternalLinksInDifferentTab()
 })
 
