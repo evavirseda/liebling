@@ -163,6 +163,32 @@ $(() => {
         }
     }
 
+
+const openExternalLinksInDifferentTab = () => {
+    let links = $('a');
+    $.each(links, function (index, value) {
+        console.log('>>>')
+        console.log('value', value)
+        console.log('value includes hostname?', value.href.includes(window.location.hostname))
+        if (!value.href.includes(window.location.hostname)) {
+            console.log('value.href.includes(window.location.hostname)',window.location.hostname)
+            console.log('value.href',value.href)
+            console.log('value.parents',$(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner'))
+            console.log('PARENTS',$(value).parents())
+            if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length > 0) {
+                console.log('value.target = _self')
+                value.target = '_self';
+            } else {
+                value.target = '_blank';
+                console.log('value.target = _blank')
+            }
+
+        }
+        console.log('<<<')
+    });
+}
+
+
     $openMenu.on('click', () => {
         $header.addClass('mobile-menu-opened')
         $menu.addClass('opened')
@@ -377,33 +403,6 @@ $(() => {
     checkForActionParameter()
     tryToRemoveNewsletter()
     trySearchFeature()
-})
-
-
-const openExternalLinksInDifferentTab = () => {
-    let links = $('a');
-    $.each(links, function (index, value) {
-        console.log('>>>')
-        console.log('value', value)
-        console.log('value includes hostname?', value.href.includes(window.location.hostname))
-        if (!value.href.includes(window.location.hostname)) {
-            console.log('value.href.includes(window.location.hostname)',window.location.hostname)
-            console.log('value.href',value.href)
-            console.log('value.parents',$(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner'))
-            console.log('PARENTS',$(value).parents())
-            if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length > 0) {
-                console.log('value.target = _self')
-                value.target = '_self';
-            } else {
-                value.target = '_blank';
-                console.log('value.target = _blank')
-            }
-
-        }
-        console.log('<<<')
-    });
-}
-
-$(window).on('load', () => {
     openExternalLinksInDifferentTab()
+
 })
