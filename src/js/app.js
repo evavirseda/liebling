@@ -186,19 +186,6 @@ $(() => {
         }
     })
 
-    const openExternalLinksInDifferentTab = () => {
-        let links = $('a');
-        $.each(links, function (index, value) {
-            if (!value.href.includes(window.location.hostname)) {
-                if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length > 0) {
-                    value.target = '_blank';
-                } else {
-                    value.target = '_self';
-                }
-            }
-        });
-    }
-
     $openSearch.on('click', () => {
         $search.addClass('opened')
         setTimeout(() => {
@@ -390,5 +377,27 @@ $(() => {
     checkForActionParameter()
     tryToRemoveNewsletter()
     trySearchFeature()
+})
+
+const openExternalLinksInDifferentTab = () => {
+    let links = $('a');
+    $.each(links, function (index, value) {
+        console.log('>>>')
+        console.log('value', value)
+        if (!value.href.includes(window.location.hostname)) {
+            console.log('value.href.includes(window.location.hostname)')
+            if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length > 0) {
+                console.log('value.target = _blank')
+                value.target = '_blank';
+            } else {
+                value.target = '_self';
+                console.log('value.target = _self')
+            }
+        }
+        console.log('<<<')
+    });
+}
+
+$(window).on('load', () => {
     openExternalLinksInDifferentTab()
 })
