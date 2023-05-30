@@ -379,17 +379,19 @@ $(() => {
     trySearchFeature()
 })
 
+
 const openExternalLinksInDifferentTab = () => {
     let links = $('a');
     $.each(links, function (index, value) {
         console.log('>>>')
         console.log('value', value)
-        console.log('includes hostname?', value.href.includes(window.location.hostname))
+        console.log('value includes hostname?', value.href.includes(window.location.hostname))
         if (!value.href.includes(window.location.hostname)) {
-            console.log('window.location.hostname:',window.location.hostname)
+            console.log('value.href.includes(window.location.hostname)',window.location.hostname)
+            console.log('value.href',value.href)
+            console.log('value.parents',$(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner'))
             console.log('PARENTS',$(value).parents())
-            if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length === 0) {
-                console.log('THIS IS ONLY FOR COOKIEBLOCK', value)
+            if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length > 0) {
                 console.log('value.target = _self')
                 value.target = '_self';
             } else {
