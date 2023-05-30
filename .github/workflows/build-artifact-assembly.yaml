@@ -1,6 +1,6 @@
 name: Build and create zip - Assembly Blog
 on:
-  push:
+  pull_request:
     branches:
       - feat/assembly-blog
 jobs:     
