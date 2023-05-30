@@ -384,19 +384,19 @@ const openExternalLinksInDifferentTab = () => {
     $.each(links, function (index, value) {
         console.log('>>>')
         console.log('value', value)
-        console.log('value includes hostname?', value.href.includes(window.location.hostname))
+        console.log('includes hostname?', value.href.includes(window.location.hostname))
         if (!value.href.includes(window.location.hostname)) {
-            console.log('value.href.includes(window.location.hostname)',window.location.hostname)
-            console.log('value.href',value.href)
-            console.log('value.parents',$(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner'))
+            console.log('window.location.hostname:',window.location.hostname)
             console.log('PARENTS',$(value).parents())
-            if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length > 0) {
-                console.log('value.target = _blank')
-                value.target = '_blank';
-            } else {
-                value.target = '_self';
+            if ($(value).parents('#cookieblock', '#cookieblock__banner__wrapper', '#cookieblock__banner').length === 0) {
+                console.log('THIS IS ONLY FOR COOKIEBLOCK', value)
                 console.log('value.target = _self')
+                value.target = '_self';
+            } else {
+                value.target = '_blank';
+                console.log('value.target = _blank')
             }
+
         }
         console.log('<<<')
     });
