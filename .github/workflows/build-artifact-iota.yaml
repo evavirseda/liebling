@@ -1,6 +1,6 @@
 name: Build and create zip - IOTA Blog
 on:
-  push:
+  pull_request:
     branches:
       - feat/iota-blog
 jobs:
